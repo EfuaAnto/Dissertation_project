@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href='css/Login_&_Registration.css'>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="nav-button" onclick="window.location.href='logWeight.html';">Dashboard</button>
+            <button class="nav-button" onclick="window.location.href='Login_&_Registration.html';">Login & Registration</button>
+            <button class="nav-button" onclick="window.location.href='weight_history.html';">History</button>
+            <button class="nav-button" onclick="window.location.href='Visualization.html';">Visualization</button>
+        </div>
+        <div class="nav-center">
+            <button class="dropbtn nav-button">User</button>
+            <div class="dropdown">
+                <div class="dropdown-content" id="dropdownContent">
+                    <ul>
+                        <li class="login-dropdown"> <a href="user_preferences.html">Preferences</a></li>
+                        <li class="login-dropdown"> <a href="user_details.html">Details</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+     
+     <section class="main_content">
+         <div class="aside-L">
+         <h1>User Details</h1>
+         
+         <div class="change_input_name">
+             <h5>Name:</h5>
+        <input type="text" name=" Name" placeholder=" Name" required>
+        </div>
+        
+         <div class="input_email">
+             <h5>E-mail:</h5>
+        <input type="email" name="email" placeholder="E-mail" required>
+        </div>
+        
+        <div class="input_password">
+             <h5>password:</h5>
+        <input type="password" name="password" placeholder="Password" required>
+        </div>
+        
+        <div class="input_phoneNumber">
+             <h5>Phone Number:</h5>
+        <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
+        </div>
+        
+        <div class="input_height">
+             <h5>Height:</h5>
+        <input type="number" name="height" placeholder="height" required>
+        </div>
+        
+        <div class="input_weight">
+             <h5>Weight:</h5>
+        <input type="weight" name="weight" placeholder="weight" required>
+        </div>
+        
+        <div class="Age">
+             <h5>Age:</h5>
+        <input type="Age" name="Age" placeholder="Age" required>
+        </div><br>
+        </div>
+        <div class="aside-R">
+            <div class="milestone alert">
+             <div><lable>Milestone Alert</lable><button>On</button><button>Off</button></div>
+            </div>
+       
+             <div class="target_weight">
+             <h5>Target Weight:</h5>
+        <input type="weight" name="weight" placeholder="weight" required>
+        </div>
+        
+         <div class="weigth_change_threshold">
+             <h5>Weigth Change Threshold:</h5>
+        <input type="weight" name="weight" placeholder="weight" required>
+        </div>
+        
+         <div class="inactivity reminder">
+             <h5>Inactivity Reminder:</h5>
+        <input type="weight" name="weight" placeholder="days" required>
+            </div><br>
+            
+              <div class="button">
+        <button type="submit">Login</button>
+             </div>
+             
+            </div>
+            
+         </section>
+         </body>
+         </html>
