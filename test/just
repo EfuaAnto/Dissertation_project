@@ -1,0 +1,93 @@
+async function loadUserData(user_id) {
+ try{
+    const response = await fetch('php/displayUserDetails.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user_id })
+});
+
+
+        const responseClone = response.clone();
+        console.log("Raw Response:", responseClone);
+        if (!response.ok) {
+            const errorBody = await responseClone.text();
+            console.error("Error Response Body:", errorBody);
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        let details;
+        try {
+            details = JSON.parse(responseClone); 
+    console.log("Parsed JSON:", details);
+
+
+             //parsing response as json one more time to avoid errors 
+             details = await response.json();
+            document.getElementById("name").value = `${details.name}`;
+            document.getElementById("surname").value = `${details.surname}`;
+            document.getElementById("email").value = `${details.email}`;
+            document.getElementById("password").value = `${details.password}`;
+            document.getElementById("height").value = `${details.height}`;
+            document.getElementById("Age").value = `${details.age}`;
+            document.getElementById("target_weight").value = `${details.target_weight}`;
+            document.getElementById("health_Condition").value = `${details.health_Condition}`;
+   
+        } catch (jsonError) {
+             //if its not a json response it will give error by showing the response or other methods of error reporting
+           
+            const errorText = await responseClone.text();
+            console.error("Non-JSON response received:", errorText);
+            throw new Error("Expected JSON but received non-JSON response.");
+        }
+        //checking for any more errors and alert with error message 
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+}catch (error) {
+        console.error("Error:", error);
+
+        async function loadProgrammeSummary(homepage_id) {
+            try{
+                  //fetch api 
+                   const response = await fetch('./Home_pages/retrieveProgrammeSummary.php', {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json'
+                       },
+                       //hardcoding the value as the program summary is always the same field updated.
+                       body: JSON.stringify({ homepage_id: 1 })
+                   });
+                   //clone response given for debugging
+                   const responseClone = response.clone();
+           // errors reporting if any issues found
+                   if (!response.ok) {
+                       const errorBody = await responseClone.text();
+                       console.error("Error Response Body:", errorBody);
+                       throw new Error(`HTTP error! Status: ${response.status}`);
+                   }
+           //creating variable to store result data 
+                   let summary;
+                   try {
+                        //parsing response as json one more time to avoid errors 
+                       summary = await response.json();
+                       document.getElementById("programme_summary").value = `${summary.programme_summary}`;
+                   } catch (jsonError) {
+                        //if its not a json response it will give error by showing the response or other methods of error reporting
+                      
+                       const errorText = await responseClone.text();
+                       console.error("Non-JSON response received:", errorText);
+                       throw new Error("Expected JSON but received non-JSON response.");
+                   }
+                   //checking for any more errors and alert with error message 
+           
+                   if (!response.ok) {
+                       throw new Error(`HTTP error! Status: ${response.status}`);
+                   }
+           }catch (error) {
+                   console.error("Error:", error);
+           }
+           }
+           
