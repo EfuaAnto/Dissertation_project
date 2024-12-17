@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
-    <link rel="stylesheet" href='css/Login_&_Registration.css'>
+    <link rel="stylesheet" href="css/Login_&_Registration.css">
 </head>
 <body>
 <header>
     <nav class="navbar">
             <div class="nav-left">
-                <button class="nav-button" onclick="window.location.href='P_logWeight.php';">Dashboard</button>
-                <button class="nav-button" onclick="window.location.href='P_weight_history.php';">History</button>
+                <button class="nav-button" onclick="window.location.href='P_logWeight.html';">Dashboard</button>
+                <button class="nav-button" onclick="window.location.href='P_weight_history.html';">History</button>
     
             </div>
             <div class="nav-center">
             <button class="nav-button" id="ButtonLogout">Logout</button>
                
-                <button class="nav-button" onclick="window.location.href='P_user_details.php';">User</button>
+                <button class="nav-button" onclick="window.location.href='P_user_details.html';">User</button>
                 
                 </div>
             
@@ -89,6 +89,7 @@
         <input type="number" name="inactivity_reminder"  id="inactivity_reminder" placeholder="days" required>
             </div>-->
             <h5>Inactivity Reminder:</h5>
+            <label for="inactivity_reminder">Days:</label>
             <select id="inactivity_reminder">
     <option value="1">1 Day</option>
     <option value="2">2 Days</option>
@@ -101,7 +102,7 @@
         <button  id="updateButton" >submit</button>
              </div>
              
-            </div>
+      
             
          </section>
          </body>

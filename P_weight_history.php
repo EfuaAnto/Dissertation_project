@@ -21,7 +21,7 @@
   min-height: 80vh; /* Use at least 80% of the viewport height */
   padding: 20px;
   background: #f2f2f2;
-  margin:auto; /*
+  margin:auto; 
         }
       table {
             width: 100%;
@@ -154,7 +154,7 @@
       <div id="graph_container">
 <div id="line_charts">
 <h3>Line Charts</h3>
-
+<label for="Months2">Month:</label>
 <select id="Months2">
 <option value="01">January</option>
                 <option value="02">February</option>
@@ -187,7 +187,7 @@
   
         </div>
        <!--comparing between averages  Group records using avergae function on weight and group by weekly etc..-->
-        <average_weight>
+        <div class="average_weight">
             <h3>Average Weight</h3>
             <div id="average_weight_chart">
             <canvas id="pie_average_weight_chart_weekly"></canvas>
@@ -211,9 +211,11 @@
                 <canvas id="scatter_plott_user_weight_logging_monthly"></canvas>
                 <canvas id="scatter_plott_user_weight_logging_yearly"></canvas>
             </div>
+     
+        </div>
       </div>
- 
      </section>
+     
      </body>
      <script>
          let user_id = null;
