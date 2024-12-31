@@ -61,12 +61,11 @@
           <div class="input_target_weight">
         <input type="target_weight" name="target_weight" placeholder="target weight in kg" required>
         </div>
-       <!-- <label for="health_condition">Health Condition:</label>-->
         
         <div class="input_health_Condition">
             <select type="tel" name="health_Condition" placeholder="Health Condition" required>
-            <option value="Diabetic">Diabetic</option>
-            <option value="Pre_Diabetic">Pre_Diabetic</option>
+            <option value="Diabetes">Diabetic</option>
+            <option value="Prediabetes">Pre_Diabetic</option>
         </select>
     </div>
            

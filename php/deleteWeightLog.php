@@ -6,7 +6,7 @@ require 'connectionScript.php';
 
 // Ensure the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    http_response_code(403); // Forbidden
+    http_response_code(403);
     echo json_encode(["error" => "User not logged in."]);
     exit;
 }
@@ -14,12 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
-    // Validate input
-    if (!isset($data['weight_id'])) {
-        http_response_code(400); // Bad Request
-        echo json_encode(["error" => "Missing weight_id."]);
-        exit;
-    }
+    
 
     $user_id = $_SESSION['user_id'];
     $weight_id = $data['weight_id'];
@@ -30,15 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ii", $user_id, $weight_id);
 
     if ($stmt->execute()) {
-        echo json_encode(["message" => "Deleted successfully."]);
+        echo json_encode(["message" => "Log Deleted successfully."]);
     } else {
-        http_response_code(500); // Internal Server Error
-        echo json_encode(["error" => "Failed to delete: " . $stmt->error]);
+        http_response_code(500);
+        echo json_encode(["error" => "Log Failed to Delete: " . $stmt->error]);
     }
 
     $stmt->close();
 } else {
-    http_response_code(405); // Method Not Allowed
+    http_response_code(405); 
     echo json_encode(["error" => "Method not allowed."]);
 }
 

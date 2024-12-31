@@ -1,0 +1,245 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+}
+  
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px;
+}
+
+  
+  .main_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 80vh;
+    padding: 20px;
+    margin: auto;
+  }
+  
+  #weightHistoryTable {
+    width: 100%;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #D3D3D3;
+    table-layout: fixed; 
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    word-wrap: break-word; 
+    max-width: 100px; 
+  }
+  
+  th {
+    background-color: #333;
+    color: white;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    th, td {
+      padding: 6px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    th, td {
+      padding: 4px;
+      font-size: 12px;
+    }
+  }
+  
+  #lineChart {
+      width: 100%;
+      height: auto; 
+      max-width: 100%; 
+  }
+  
+  h1{background-color: #333;
+  color: white;
+  padding: 20px;
+width:100%;}
+  
+          
+         #deleteLoggsBtn{
+          color: white;
+          margin-top: 5px;
+          width: 100%;
+          background-color: #333;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          padding-left: 15px;
+          padding-right: 15px;
+          display: block;
+          cursor: pointer; 
+              box-sizing: border-box;
+              transition: background-color 0.3s, transform 0.2s;
+      }
+        
+      #deleteLoggsBtn:hover {
+              background-color: #555;
+              color: #fff;
+             
+          }
+          #deleteLoggsBtn:active {
+              background-color: #222;
+              transform: scale(0.95);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+          }
+          #filterForm {
+        display: flex;
+        align-items: center; 
+        gap: 10px;
+        margin-bottom: 10px; 
+      }
+  
+   
+      #filterForm label {
+        margin: 0 5px; 
+      }
+   
+      #applyFilters{color: white;
+          margin: 0 auto;
+          margin-top: 8px;
+          margin-bottom: 15px;
+          width: 0 auto;
+          height: 100%;
+          background-color: #333;
+          padding:20px;
+          display: block;
+          cursor: pointer; 
+              box-sizing: border-box;
+              transition: background-color 0.3s, transform 0.2s;
+              border:white 10px solid transparent;
+              border-radius: 5px;
+          }
+           
+              #applyFilters:hover {
+              background-color: #555;
+              color: #fff;
+             
+          }
+          #applyFilters:active {
+              background-color: #222;
+              transform: scale(0.95);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+          }
+      #nextButton{
+          color: white;
+          margin-top: 5px;
+          width: 100%;
+          height: 100%;
+          background-color: #333;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          padding-left: 15px;
+          padding-right: 15px;
+          display: block;
+          cursor: pointer; 
+              box-sizing: border-box;
+              transition: background-color 0.3s, transform 0.2s;
+              border-radius: 50px;}
+              
+              #nextButton:hover {
+              background-color: #555;
+              color: #fff;
+             
+          }
+          #nextButton:active {
+              background-color: #222;
+              transform: scale(0.95);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+          }
+
+          #backButton{
+            color: white;
+            margin-top: 5px;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 15px;
+            padding-right: 15px;
+            display: block;
+            cursor: pointer; 
+                box-sizing: border-box;
+                transition: background-color 0.3s, transform 0.2s;
+                border-radius: 50px;
+                position: relative;
+            left:25px;}
+                
+                #backButton:hover {
+                background-color: #555;
+                color: #fff;
+               
+            }
+            #backButton:active {
+                background-color: #222;
+                transform: scale(0.95);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+            }
+         /*
+          #chart-container {
+            width: 100%; 
+            height: auto;
+            margin: 0 auto; 
+            max-width: 100%; 
+            overflow: hidden;
+            box-sizing: border-box; 
+            padding: 10px; 
+            margin :10px auto;
+          }
+*/
+          
+          /*
+          canvas {
+            width: 100%; 
+            height: auto;
+            margin: 0 auto; 
+            max-width: 700px; 
+            overflow: hidden;
+            box-sizing: border-box; 
+            padding: 10px; 
+            margin 10px auto;
+          }*/
+          
+        
+          #chart-container {
+        
+            height: auto;
+            margin: 0 auto; 
+            max-width: 100%;
+           margin: 10px;
+            overflow: hidden;
+            box-sizing: border-box; 
+            padding: 10px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+        
+          
+         
+          
+          
+         
+        
+        

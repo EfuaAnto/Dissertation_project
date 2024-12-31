@@ -15,9 +15,12 @@ require 'connectionScript.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data =[];
     $user_id = $_SESSION['user_id'] ?? null;
-    try {
-    $sql = "SELECT Weight ,DATE(date_time) AS full_date, /*YEAR(date_time) AS year, 
-    MONTH(date_time) AS month, DAY(date_time) AS day,*/ 
+    $selected_year = isset($data['year']) ? $data['year'] : '0000';
+    $selected_month = isset($data['month']) ? $data['month'] : '00';
+
+   
+    $sql = "SELECT Weight ,DATE(date_time) AS full_date, YEAR(date_time) AS year, 
+    MONTH(date_time) AS month, DAY(date_time) AS day,WEEK(date_time) AS week,
     weight , bodyMass_percentage 
     FROM weight_recorded 
     WHERE user_id =? ORDER by date_time ASC";
@@ -32,9 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         while ($row = $result->fetch_assoc()) {
             $data[] = [
                 'full_date' => $row['full_date'],
-                //'year' => $row['year'],
-               // 'month' => $row['month'],
-                //'day' => $row['day'],
+                'year' => $row['year'],
+               'month' => $row['month'],
+                'day' => $row['day'],
+                'week' => $row['week'],
                 'weight' => $row['weight'],
                 'bodyMass_percentage' => $row['bodyMass_percentage']
                 ];
@@ -50,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
      echo json_encode($data);
  
-} catch (Exception $e) {
-    echo json_encode(['error' => $e->getMessage()]);}
+
 }
  ?>

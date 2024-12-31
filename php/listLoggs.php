@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'day' => $row['day'],
                 'weight' => $row['weight'],
                 'bodyMass_percentage' => $row['bodyMass_percentage'],
-                'user_id' => $row['user_id'] ?? null, // Add null check
-                'weight_id' => $row['weight_id'] ?? null // Add null check
+                'user_id' => $row['user_id'] ?? null, 
+                'weight_id' => $row['weight_id'] ?? null 
             ];
         }
     }
