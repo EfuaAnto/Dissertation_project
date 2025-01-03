@@ -24,7 +24,7 @@
 ## Setting Up a Scheduled Task (Windows)
 
 1. Open Task Scheduler (Press `Win + R`, type `taskschd.msc`, and press Enter).
-2. Click on **Create Basic Task**.
+2. Click on **Create Task**.
 3. Follow the prompts to set the task to run daily at midnight, and select the `run_fetch_data_for_alerts.sh` script.
 
 ## Setting Up a Cron Job (Linux/macOS)

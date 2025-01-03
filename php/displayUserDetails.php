@@ -58,7 +58,7 @@ if (isset($data['user_id'])) {
             $preferenceDetails = $result3->fetch_assoc();
             $userData["milestone_alert"] = $preferenceDetails["milestone_alert"] ?? "";
             $userData["inactivity_reminder"] = $preferenceDetails["inactivity_reminder"] ?? "";
-            //$userData["weight_fluctuation"] = $preferenceDetails["weight_fluctuation"] ?? "";
+           
         } 
 
      

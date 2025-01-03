@@ -1,22 +1,18 @@
+
 <?php
-/*session_start();
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-
-$contact_card = fopen("alerts_log","w");
-$today = new DateTime() ;
-$dateString = $today->format('Y-m-d H:i:s');
-fprintf($contact_card,"Started $dateString\n ");
-fclose($contact_card);
-*/
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require 'connectionScript.php';
 require 'vendor/autoload.php';
+
+
 
 function InactivityReminderStatus($user_id, $email, $inactivity_days){
     require 'connectionScript.php';   
@@ -50,7 +46,7 @@ function InactivityReminderStatus($user_id, $email, $inactivity_days){
 
 } // end of InactivityReminderStatus function
 
-
+/
 function WeightFluctuationStatus($user_id, $email){
     // Check if today is Saturday or Monday
     $today = new DateTime();
@@ -68,7 +64,7 @@ function WeightFluctuationStatus($user_id, $email){
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     $current_avg_weight_week = $row['current_avg_weight_week'];
-//echo "Current average weight: " . $current_avg_weight_week . "<br>";
+echo "Current average weight: " . $current_avg_weight_week . "<br>";
     $sql2 = "SELECT AVG(weight) AS last_avg_weight_week 
     FROM weight_recorded
     WHERE user_id = ? AND date_time BETWEEN DATE_SUB(NOW(), INTERVAL 14 DAY) AND DATE_SUB(NOW(), INTERVAL 7 DAY)";
@@ -96,7 +92,7 @@ echo "Weight difference: " . $weight_difference . "<br>";
             <body>
             <h2>Weight Gain Alert</h2>
             <p>Your weight increased by " . abs($weight_difference) . " kg compared to last week. Please review your plan.</p>
-            <p>From your weight tracker </p>
+            <p>Thank you,<br>The Team</p>
             </body>
             </html>";
             EmailAlertFunction($email, $subject, $message);
@@ -111,7 +107,7 @@ echo "Weight difference: " . $weight_difference . "<br>";
                 <body>
                 <h2>Weight Loss Alert</h2>
                 <p>Your weight decreased by " . abs($weight_difference) . " kg compared to last week. Please review your plan.</p>
-                <p>From your weight tracker</p>
+                <p>Thank you,<br>The Team</p>
                 </body>
                 </html>";
                 EmailAlertFunction($email, $subject, $message);
@@ -120,7 +116,6 @@ echo "Weight difference: " . $weight_difference . "<br>";
 } else {
    
     $last_avg_weight_week = $current_avg_weight_week;
-}
 }
 } // end of WeightFluctuationStatus function
 
@@ -168,8 +163,7 @@ function EmailAlertFunction($to, $subject, $message) {
 }
 } // end of EmailAlertFunction function
 
-//if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    
+
     $sql = "SELECT u.user_id, u.email, p.inactivity_reminder
             FROM user_tbl u
             JOIN user_preferences p ON u.user_id = p.user_id";
@@ -188,14 +182,11 @@ function EmailAlertFunction($to, $subject, $message) {
             ];
             echo "Target user " . $row['user_id'];
             echo "Target email " . $row['email'];
-        InactivityReminderStatus($row['user_id'], $row['email'], $row['inactivity_reminder']); 
+            InactivityReminderStatus($row['user_id'], $row['email'], $row['inactivity_reminder']);
+         
         WeightFluctuationStatus($row['user_id'], $row['email']);
     }
 }
 
-
-
-
-//echo ($preferences);
 $conn->close();
 ?>

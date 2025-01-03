@@ -89,9 +89,9 @@ async function loadUserData(user_id) {
             document.getElementById("height").value = `${userData.height}`;
             document.getElementById("Age").value = `${userData.age}`;
             document.getElementById("target_weight").value = `${userData.target_weight}`;
-            //document.getElementById("weight").value = `${userData.weight}`;
+           
             document.getElementById("health_Condition").value = `${userData.health_Condition}`;
-            //document.getElementById("weight_fluctuation").value = `${userData.weight_fluctuation}`;
+            
             document.getElementById("inactivity_reminder").value = `${userData.inactivity_reminder}`;
 
 } else {
@@ -113,9 +113,9 @@ document.getElementById("updateButton").addEventListener("click", async () => {
         height: document.getElementById("height").value,
         Age: document.getElementById("Age").value,
         target_weight: document.getElementById("target_weight").value,
-        //weight: document.getElementById("weight").value,
+  
         health_Condition: document.getElementById("health_Condition").value,
-        //weight_fluctuation: document.getElementById("weight_fluctuation").value,
+
     };
 
     console.log("Collected input values:", inputValues);

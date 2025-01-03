@@ -8,46 +8,7 @@
     <style>
        
        
-       /*
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.filter-btn {
-    padding: 10px 15px;
-    margin: 0 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    outline: none;
-}
-
-.filter-btn.active {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-}
-
-.filter-btn:hover {
-    background-color: #007BFF;
-    color: white;
-}
-
-select {
-    padding: 5px;
-    font-size: 1rem;
-    margin-left: 10px;
-}
-
-label {
-    font-size: 1rem;
-    font-weight: bold;
-}
-*/
+ 
     </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -159,40 +120,7 @@ label {
     
 </div>
 
-    <!--  
-  <div id="weightGraph" style="display: block;">
 
-      <h1>Graphs</h1>
-      <button id="backButton">Weight History Table</button> 
-    
-    <h3>Your Weight</h3>
-    <h4  for = "filter-buttons" style="font-size: 1.2rem; font-weight: bold;">Filter By:</h4>
-    <div id="filter-buttons">
-   
-    <button id="weeklyButton " onclick="FetchUserWeightAndDateData(user_id ,'weekly')">Weekly</button>
-        <button id="monthlyButton" onclick="FetchUserWeightAndDateData(user_id ,'monthly')">Monthly</button>
-        <button id="yearlyButton" onclick="FetchUserWeightAndDateData(user_id ,'yearly')">Yearly</button>
-</div>
-
-<div id="chart-container">   
-<canvas id="lineChart" width="700px" height="300px"   ></canvas>
-</div>
-
-      </div>
-      <div id="chart-container"> 
-        <div id="Bmi_tracking" >
-            <h4>Last 8 Weeks  BMI Average</h4>
-            <div id="chart-container">
-            <canvas id="bmi_chart" width="700px" height="300px" ></canvas>
-         </div>
-        </div>
-</div>
-      
-      </div>
-</div>
-
-     </section>
--->
   
      </section>
      
@@ -310,7 +238,7 @@ function displayWeightLog(data) {
     data.forEach(row => {
         const tr = document.createElement('tr');
         
-        // Extract month, day, and year from the full date
+        
         const month = new Date(row.full_date).toLocaleString('default', { month: 'long' });
         const year = row.year;
         const day = row.day;
@@ -658,34 +586,7 @@ function renderChart(labels, values, title) {
         }
     });
 }
-/*
-async function FetchUserBMIData(user_id) {
-    
-    try {
-        const response = await fetch('php/calculateUserBMI.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ user_id: user_id}),
-        });
 
-        if (!response.ok) {
-            const errorBody = await response.text();
-            console.error("Error Response Body:", errorBody);
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-      
-        const responseData = await response.json();
-        console.log("Success BMI chart data :", responseData);
-       
-        renderBMIChart(responseData.weeklyBmi);
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-*/
 async function FetchUserBMIData(user_id) {
     
     try {

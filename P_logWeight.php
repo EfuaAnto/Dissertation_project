@@ -59,23 +59,11 @@
             <div class="progress" id="progress" style="width: 0%;"></div>
         </div>
         <p>Target weight: <span id="target_weight">0</span> kg</p>
-        <!--
-       <form action=" http://localhost/Dissertation_project/php/logWeight.php" method="POST" >
-         
-       
-         <div class="Weight_log">
-            <label for="weight"><h1>Log Weight:</h1></label>
-        <input type="number" id="weight" name=" weight" placeholder=" log weight" required min="1" max="1000" value="00">
-        </div>
-  
-  <div class = "date_&_time">
-      <input type ="datetime-local" id ="date_time" name = "date_time" placeholder = "Date And Time">
-      <input type="hidden" name="user_id" value="10">
-      </div>
-      <input type="submit">
-      </form>
-      
-       -->
+        <div id="percentageMessage">
+            <p id="percentageMessageText"></p>
+    
+
+       </div>
        <form id="Weight_log" >
         
         <label for="weight"><h1>Log Weight:</h1></label>
@@ -87,11 +75,7 @@
       <input type="submit">
       </form>
       
-       <div id="percentageMessage">
-            <p id="percentageMessageText"></p>
-    
-
-       </div>
+      
     
     </section>
 
