@@ -28,7 +28,7 @@ body {
   #weightHistoryTable {
     width: 100%;
     overflow-x: auto; 
-    -webkit-overflow-scrolling: touch; 
+
   }
   
   table {
@@ -66,16 +66,12 @@ body {
     }
   }
   
-  #lineChart {
-      width: 100%;
-      height: auto; 
-      max-width: 100%; 
-  }
+
   
   h1{background-color: #333;
   color: white;
   padding: 20px;
-width:100%;}
+;}
   
           
          #deleteLoggsBtn{
@@ -184,7 +180,7 @@ width:100%;}
                 transition: background-color 0.3s, transform 0.2s;
                 border-radius: 50px;
                 position: relative;
-            left:25px;}
+            ;}
                 
                 #backButton:hover {
                 background-color: #555;
@@ -196,7 +192,16 @@ width:100%;}
                 transform: scale(0.95);
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
             }
-         
+            #lineChart {
+              width: 100%;
+              height: auto; 
+              max-width: 100%; 
+          }
+          #bmi_chart {
+            width: 100%;
+            height: auto; 
+            max-width: 100%; 
+        }
         
           #chart-container {
         

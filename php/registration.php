@@ -25,13 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $weight = $_POST['weight'];
     $age = $_POST['age'];
     $target_weight = $_POST['target_weight']; //isset($_POST['target_weight'])// && !empty($_POST['target_weight'])
-   /*
-    if ($row && !empty($row['target_weight'])) {
-        $target_weight = $row['target_weight'];
-    } else {
-        // Default target weight (reduce by 5-7% for weight loss goal)
-        $target_weight = $weight * 0.93; // 7% reduction
-    }*/
+   
     if ($target_weight > 0){ 
         $bodyMass_percentage = (($weight - $target_weight) / $weight) * 100;
         $bodyMass_percentage = round($bodyMass_percentage, 2);

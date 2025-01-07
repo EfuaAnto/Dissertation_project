@@ -41,9 +41,10 @@ while ($row = $result->fetch_assoc()) {
     $bmi = $avg_weight / ($height_m * $height_m);
     $weeklyBmi[$row['week']] = $bmi;
 }
-
+//this line of code will get the last 8 weeks of the array
 $weeklyBmi = array_slice($weeklyBmi, -8, 8, true);
 
+//this line of code will send the result or error to the user 
     $response = [
         "status" => "success",
         "message" => "BMI calculated ",

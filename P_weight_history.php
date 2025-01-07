@@ -95,9 +95,9 @@
 </div>
 
 <div id="weightGraph" style="display: block;">
-        <h1>Graphs</h1>
+        <h1 class="graphTitle" >Graphs</h1>
         <button id="backButton">Weight History Table</button> 
-        <canvas></canvas>
+       
         <h3>Your Weight Over Time</h3>
             <h4  for = "filter-buttons" style="font-size: 1.2rem; font-weight: bold;">Filter By:</h4>
     <div id="filter-buttons">

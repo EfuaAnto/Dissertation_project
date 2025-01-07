@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 29, 2024 at 09:39 PM
+-- Generation Time: Jan 05, 2025 at 08:38 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dissertation`
 --
-CREATE DATABASE IF NOT EXISTS `dissertation` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `dissertation`;
 
 -- --------------------------------------------------------
 
@@ -59,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `user_tbl` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `index_username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -76,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `weight_recorded` (
   `bodyMass_percentage` float NOT NULL,
   PRIMARY KEY (`weight_id`),
   KEY `weight_recorded_user_id_user_tbl_use_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1339 DEFAULT CHARSET=latin1;
 
 --
 -- Constraints for dumped tables

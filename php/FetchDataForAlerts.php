@@ -1,17 +1,13 @@
 <?php
-/*session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-
-
-$contact_card = fopen("alerts_log","w");
+function log_message($message){
+$contact_card = fopen("alerts_log","a");
 $today = new DateTime() ;
 $dateString = $today->format('Y-m-d H:i:s');
-fprintf($contact_card,"Started $dateString\n ");
+fprintf($contact_card,"$dateString $message\n ");
 fclose($contact_card);
-*/
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -19,6 +15,7 @@ require 'connectionScript.php';
 require 'vendor/autoload.php';
 
 function InactivityReminderStatus($user_id, $email, $inactivity_days){
+   log_message("inactivity reminder status");
     require 'connectionScript.php';   
     $sql = "SELECT MAX(date_time) AS last_entry_date FROM weight_recorded WHERE user_id = ? ";
     $stmt = $conn->prepare($sql);
@@ -52,10 +49,11 @@ function InactivityReminderStatus($user_id, $email, $inactivity_days){
 
 
 function WeightFluctuationStatus($user_id, $email){
+    log_message("weight fluctuation reminder status");
     // Check if today is Saturday or Monday
     $today = new DateTime();
     $dayOfWeek = $today->format('N'); // 1 (for Monday) through 7 (for Sunday)
-
+    //$dayOfWeek = 1;
     if ($dayOfWeek == 1 ) {
         // If today is Monday (1)proceed with the status check
     require 'connectionScript.php';
@@ -126,7 +124,7 @@ echo "Weight difference: " . $weight_difference . "<br>";
 
 
 function EmailAlertFunction($to, $subject, $message) {
-    
+    log_message("Sending Email ");
     $mail = new PHPMailer(true);
     try {
     // Server settings
@@ -163,8 +161,10 @@ function EmailAlertFunction($to, $subject, $message) {
 
     $mail->send();
     echo "Email sent successfully to $to.<br>";
+    log_message("Email sent successfully to $to.<br>");
 } catch (Exception $e) {
     echo "Failed to send email to $to. Error: {$mail->ErrorInfo}<br>";
+    log_message("Failed to send email to $to. Error: {$mail->ErrorInfo}<br>");
 }
 } // end of EmailAlertFunction function
 
@@ -198,4 +198,6 @@ function EmailAlertFunction($to, $subject, $message) {
 
 //echo ($preferences);
 $conn->close();
+log_message("normal termination---------------------------------");
+exit();
 ?>
